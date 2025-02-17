@@ -13,7 +13,7 @@ data_interface::data_interface()
 
     // Load parameters.
     ros::NodeHandle private_handle("~");
-    data_interface::p_max_data_rate = private_handle.param<double>("max_data_rate", 1000.0);
+    data_interface::p_max_data_rate = private_handle.param<double>("max_data_rate", 10.0);
 }
 data_interface::~data_interface()
 {
@@ -27,7 +27,7 @@ void data_interface::start_subscriber()
     if(!data_interface::f_subscriber_enabled)
     {
         ros::NodeHandle node_handle;
-        data_interface::m_subscriber = node_handle.subscribe("/imu/magnetometer", 100, &data_interface::subscriber, this);
+        data_interface::m_subscriber = node_handle.subscribe("/imu/magnetometer", 300000, &data_interface::subscriber, this);
         data_interface::m_data_timer.start();
         data_interface::f_subscriber_enabled = true;
     }

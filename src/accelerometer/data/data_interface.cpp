@@ -10,7 +10,7 @@ data_interface::data_interface(std::shared_ptr<ros::NodeHandle> node)
 
     // Read parameters.
     ros::NodeHandle private_node("~");
-    data_interface::p_buffer_size = private_node.param<int32_t>("sample_size", 100);
+    data_interface::p_buffer_size = private_node.param<int32_t>("sample_size", 6000);
 
     // Initialize matrix instances.
     data_interface::m_buffer_average.setZero();

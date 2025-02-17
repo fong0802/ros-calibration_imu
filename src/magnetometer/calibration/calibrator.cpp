@@ -232,7 +232,7 @@ void calibrator::thread_worker()
 
     // Run solver.
     ifopt::IpoptSolver solver;
-    solver.SetOption("max_cpu_time", 30.0);
+    solver.SetOption("max_cpu_time", 3000.0);
     solver.Solve(problem);
 
     // Check solve status.
